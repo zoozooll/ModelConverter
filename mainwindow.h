@@ -3,9 +3,14 @@
 
 #include <QMainWindow>
 
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+class Mesh;
 
 class MainWindow : public QMainWindow
 {
@@ -16,11 +21,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_btnFileChoose_clicked();
+
+    void on_btnConvert_clicked();
 
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H
