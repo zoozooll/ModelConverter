@@ -11,6 +11,13 @@ Model::Model(string const &path): m_modelPath(path)
     directory = m_modelPath.substr(0, m_modelPath.find_last_of('/'));
 }
 
+Model::~Model()
+{
+
+}
+
+
+
 void Model::loadModel()
 {
     Assimp::Importer importer;
@@ -85,7 +92,7 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
 //    vector<Texture> albedoMap = loadMaterialTextures();
 }
 
-std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType* type, std::string typename)
+std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType* type, std::string _typename)
 {
     vector<Texture> textures;
     return textures;
