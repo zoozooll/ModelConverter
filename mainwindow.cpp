@@ -9,6 +9,10 @@
 #include <QtDebug>
 #include <iostream>
 
+#include "model.h"
+
+using std::string;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -21,9 +25,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
-
 
 void MainWindow::on_btnFileChoose_clicked()
 {
@@ -43,23 +44,11 @@ void MainWindow::on_btnConvert_clicked()
     auto filePath = ui->editFilePath->text();
     if (!filePath.isEmpty())
     {
-        auto filePathData = filePath.toStdString();
-        Assimp::Importer importer;
-        const aiScene* pScene = importer.ReadFile(filePathData, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace | aiProcess_EmbedTextures);
+        string filePathData = filePath.toStdString();
+        Model model(filePathData);
+//        model.loadModel();
 
-        Assimp::Exporter exporter;
-
-        std::filesystem::path p(filePathData);
-        auto outPath = p.replace_extension().string() + ".assbin";
-        auto rs = exporter.Export(pScene, "assbin", outPath);
-        switch (rs)	{
-        case aiReturn_SUCCESS:
-            qDebug() << ("Export result SUCCESS\n");
-            break;
-        default:
-            std::cout << "Export result failed " << exporter.GetErrorString() << std::endl;
-            break;
-        }
+        model.convert();
     }
 }
 

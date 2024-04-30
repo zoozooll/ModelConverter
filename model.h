@@ -19,13 +19,14 @@ public:
     Model(std::string const &path);
     virtual ~Model();
     void loadModel();
+    void convert();
 
 private:
     void processNode(aiNode* node, const aiScene* scene);
 
     Mesh processMesh(aiMesh* mesh, const aiScene* scene);
 
-    std::vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType* type, std::string _typename);
+    std::vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string _typename);
     std::string m_modelPath;
     std::string directory;
     std::vector<Mesh> meshes;
