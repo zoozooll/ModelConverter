@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <filesystem>
+#include <fstream>
 #include <assimp/Exporter.hpp>
 
 #include "mesh.h"
@@ -66,7 +67,7 @@ void Model::convert()
     }
     else if (extension == ".h3da")
     {
-        std::ifstream ifs(filename, std::ios::binary);
+        std::ifstream ifs(m_modelPath, std::ios::binary);
 
         ifs.seekg(0, std::ios::end);
         size_t length_of_the_file = ifs.tellg();
@@ -81,7 +82,7 @@ void Model::convert()
         for (int i = 0; i < length_of_the_file; i++)
         {
             *p_char = ~ * p_char;
-            p_char + +;
+            p_char ++;
         }
 
         pScene = importer.ReadFileFromMemory(buffer.get(), length_of_the_file,
@@ -96,7 +97,7 @@ void Model::convert()
     }
 
     if (pScene == nullptr)
-        return false;
+        return;
 
     processNode(pScene->mRootNode, pScene);
 
