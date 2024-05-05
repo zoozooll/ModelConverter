@@ -36,29 +36,25 @@ void Model::convert()
 {
     Assimp:: Importer importer;
 
-    std::filesystem::path
-    p_filename(filename);
-    auto extension = p_filename.extension().string();
-    logi("Load %s: ext: %s\n", filename.c_str(), extension.c_str());
-    const
-    aiScene * pScene;
+    std::filesystem::path p_filename(m_modelPath);
+    auto extension = p_filename.extension().string();;
+    const aiScene * pScene;
     if (extension == ".obj")
     {
-        pScene = importer.ReadFile(filename,
+        pScene = importer.ReadFile(m_modelPath,
                                    aiProcess_Triangulate |
                                    aiProcess_ConvertToLeftHanded);
 
     }
     else if (extension == ".assbin")
     {
-        std::ifstream ifs(filename, std::ios::binary);
+        std::ifstream ifs(m_modelPath, std::ios::binary);
 
         ifs.seekg(0, std::ios::end);
         size_t length_of_the_file = ifs.tellg();
         ifs.seekg(0, std::ios::beg);
 
-        auto
-        buffer = std::make_unique <char[]> (length_of_the_file);
+        auto buffer = std::make_unique <char[]> (length_of_the_file);
 
         ifs.read(buffer.get(), (long) length_of_the_file);
 
@@ -101,12 +97,6 @@ void Model::convert()
 
     if (pScene == nullptr)
         return false;
-
-    this->directory_ = filename.substr(0, filename.find_last_of("/\\"));
-
-    this->dev_ = dev;
-    this->devcon_ = devcon;
-    this->hwnd_ = hwnd;
 
     processNode(pScene->mRootNode, pScene);
 
