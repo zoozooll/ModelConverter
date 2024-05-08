@@ -15,7 +15,7 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-    mesh.h
+        mesh.h
         mesh.cpp
         model.h
         model.cpp
@@ -23,6 +23,12 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        configsdialog.h
+        configsdialog.cpp
+        configsdialog.ui
+        configs.h
+        configs.cpp
+
 )
 
 # Add assimp library
