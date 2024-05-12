@@ -204,6 +204,7 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 
     vector<Texture> albedoMap = loadMaterialTextures(material, aiTextureType_DIFFUSE, "floorTexture");
+    return Mesh(this, vertices, indices, albedoMap);
 }
 
 std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string _typename)

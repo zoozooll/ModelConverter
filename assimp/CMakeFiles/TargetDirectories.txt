@@ -1,0 +1,13 @@
+H:/workspaces/qt/ModelConverter/assimp/CMakeFiles/uninstall.dir
+H:/workspaces/qt/ModelConverter/assimp/CMakeFiles/UpdateAssimpLibsDebugSymbolsAndDLLs.dir
+H:/workspaces/qt/ModelConverter/assimp/CMakeFiles/INSTALL.dir
+H:/workspaces/qt/ModelConverter/assimp/CMakeFiles/ALL_BUILD.dir
+H:/workspaces/qt/ModelConverter/assimp/CMakeFiles/ZERO_CHECK.dir
+H:/workspaces/qt/ModelConverter/assimp/contrib/zlib/CMakeFiles/zlibstatic.dir
+H:/workspaces/qt/ModelConverter/assimp/contrib/zlib/CMakeFiles/INSTALL.dir
+H:/workspaces/qt/ModelConverter/assimp/contrib/zlib/CMakeFiles/ALL_BUILD.dir
+H:/workspaces/qt/ModelConverter/assimp/code/CMakeFiles/assimp.dir
+H:/workspaces/qt/ModelConverter/assimp/code/CMakeFiles/INSTALL.dir
+H:/workspaces/qt/ModelConverter/assimp/test/CMakeFiles/unit.dir
+H:/workspaces/qt/ModelConverter/assimp/test/CMakeFiles/INSTALL.dir
+H:/workspaces/qt/ModelConverter/assimp/test/headercheck/CMakeFiles/INSTALL.dir

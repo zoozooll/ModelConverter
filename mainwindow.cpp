@@ -51,9 +51,9 @@ void MainWindow::on_btnConvert_clicked()
 //        model.convert();
 //    }
 
-    QFile file(filePath.toStdString());
+    QFile file(filePath);
     if(!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0, "error", file.errorString());
+//        QMessageBox::information(0, "error", file.errorString());
     }
 
     QTextStream in(&file);
@@ -61,7 +61,7 @@ void MainWindow::on_btnConvert_clicked()
     while(!in.atEnd()) {
         QString line = in.readLine();
         QStringList fields = line.split(",");
-        model->appendRow(fields);
+//        model->appendRow(fields);
     }
 
     file.close();
